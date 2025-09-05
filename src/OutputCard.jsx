@@ -1,9 +1,9 @@
 import React from 'react'
 
-function OutputCard({btnText, btnLink, btnIcon, btnShape, btnSize, btnStyle, colorQuery, btnColor, btnLocation, btnVisibility, isLeft }) {
+function OutputCard({btnText, btnLink, btnIcon, btnShape, btnSize, btnStyle, btnColor, btnLocation, btnVisibility, isLeft }) {
 
-  let anchorString = `<a href="${btnLink}" class="fh-button${btnStyle !== '' ? `-${btnStyle}` : ``}-${colorQuery} fh-font--inherit fh-icon--${btnIcon} fh-shape--${btnShape} fh-size--${btnSize} ${!isLeft ? `fh-fixed--${btnLocation}` : ''} ${btnVisibility === 'bothDesktopAndMobile' ? '':`fh-hide--${btnVisibility}`}">${btnText}</a>`;
-  let styleString = `<link rel="stylesheet" href="https://fh-kit.com/buttons/v2/?${colorQuery}=${btnColor}" type="text/css" media="screen" />`
+  let anchorString = `<a href="${btnLink}" class="fh-button${btnStyle !== '' ? `-${btnStyle}` : ``}-pop fh-font--inherit fh-icon--${btnIcon} fh-shape--${btnShape} fh-size--${btnSize} ${!isLeft ? `fh-fixed--${btnLocation}` : ''} ${btnVisibility === 'bothDesktopAndMobile' ? '':`fh-hide--${btnVisibility}`}">${btnText}</a>`;
+  let styleString = `<link rel="stylesheet" href="https://fh-kit.com/buttons/v2/?pop=${btnColor}" type="text/css" media="screen" />`
   const titleStyles= 'flex justify-center text-2xl ml-5 mr-5 mb-10';
   const h3Stylings = 'text-lg font-bold mb-2';
 
@@ -12,7 +12,7 @@ function OutputCard({btnText, btnLink, btnIcon, btnShape, btnSize, btnStyle, col
       <h1 className={titleStyles}>Output</h1>
       <div className='mb-8'>
 
-        <a className={`fh-button${btnStyle !== '' ? `-${btnStyle}` : ``}-${colorQuery} ${!isLeft ? `fh-fixed--${btnLocation}` : ''} fh-font--inherit fh-shape--${btnShape} fh-size--${btnSize}  fh-icon--${btnIcon} ${btnVisibility === 'bothDesktopAndMobile' ? '':`fh-hide--${btnVisibility}`}`}>{btnText}</a>
+        <a className={`fh-button${btnStyle !== '' ? `-${btnStyle}` : ``}-pop ${!isLeft ? `fh-fixed--${btnLocation}` : ''} fh-font--inherit fh-shape--${btnShape} fh-size--${btnSize}  fh-icon--${btnIcon} ${btnVisibility === 'bothDesktopAndMobile' ? '':`fh-hide--${btnVisibility}`}`}>{btnText}</a>
 
       </div>
       <div className='flex flex-col justify-center items-center p-2 mb-10'>

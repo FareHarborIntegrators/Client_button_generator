@@ -12,7 +12,6 @@ function App() {
   const [btnShape, setBtnShape] = useState('default');
   const [btnSize, setBtnSize] = useState('default');
   const [btnStyle, setBtnStyle] = useState('2d');
-  const [colorQuery, setColorQuery] = useState('blue');
   const [btnColor, setBtnColor] = useState('0a79e9');
   const [btnLocation, setBtnLocation] = useState('');
   const [btnVisibility, setBtnVisibility] = useState('bothDesktopAndMobile');
@@ -38,9 +37,6 @@ function App() {
   const changeBtnStyle = (choice) => {
     setBtnStyle(choice);
   }
-  const changeColorQuery = (choice) => {
-    setColorQuery(choice);
-  }
   const changeColor = (choice) => {
     setBtnColor(choice);
   }
@@ -59,7 +55,7 @@ function App() {
     const id = 'dynamic-fh-style';
     let existingLink = document.getElementById(id);
 
-    const href = `https://fh-kit.com/buttons/v2/?${colorQuery}=${btnColor}`;
+    const href = `https://fh-kit.com/buttons/v2/?pop=${btnColor}`;
 
     if (existingLink) {
       existingLink.href = href;
@@ -72,7 +68,7 @@ function App() {
       link.href = href;
       document.head.appendChild(link);
     }
-  }, [btnColor, colorQuery]);
+  }, [btnColor]);
 
   return (
     <div className='flex flex-col bg-[#111827] p-10'>
@@ -88,7 +84,6 @@ function App() {
           btnLocation={btnLocation} setBtnLocation={changeBtnLocation}
           btnVisibility={btnVisibility} setBtnVisibility={changeBtnVisibility}
           isLeft={isLeft} setIsLeft={changeIsLeft}
-          colorQuery={colorQuery} setColorQuery={changeColorQuery}
           btnColor={btnColor} setBtnColor={changeColor}
           />
         <OutputCard 
@@ -98,7 +93,6 @@ function App() {
           btnShape={btnShape}
           btnSize={btnSize}
           btnStyle={btnStyle}
-          colorQuery={colorQuery}
           btnColor={btnColor}
           btnLocation={btnLocation}
           btnVisibility={btnVisibility}
@@ -112,7 +106,6 @@ function App() {
           btnShape={btnShape} setBtnShape={changeBtnShape}
           btnSize={btnSize} setBtnSize={changeBtnSize} 
           btnStyle={btnStyle} setBtnStyle={changeBtnStyle}
-          colorQuery={colorQuery} setColorQuery={changeColorQuery}
           btnColor={btnColor} setColor={changeColor}
           /> 
       </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ButtonDemoCard({btnText, btnLink, btnIcon, setIcon, btnShape, setBtnShape, btnSize,setBtnSize, btnStyle, setBtnStyle, colorQuery, btnColor, btnLocation}) {
+function ButtonDemoCard({btnText, btnLink, btnIcon, setIcon, btnShape, setBtnShape, btnSize,setBtnSize, btnStyle, setBtnStyle, btnColor, btnLocation}) {
 
   const allBtnIcons = ['cal', 'gift', 'map', 'check', 'arrow', 'ticket', 'check-bubble', 'dollar', 'clock', 'user', 'users', 'lock', 'phone', 'camera', 'beer', 'anchor', 'ship', 'location', 'caret-right', 'cutlery', 'bus', 'taxi', 'shopping-cart', 'life-ring', 'bed', 'check-square', 'calendar-check'];
   const allBtnShapes = ['default', 'round', 'square'];
@@ -17,7 +17,7 @@ function ButtonDemoCard({btnText, btnLink, btnIcon, setIcon, btnShape, setBtnSha
         <h3 className={titleStyles}>Select You Button Icon Here</h3>
         <div className='grid grid-cols-3 w-full justify-between gap-2 items-center'>
           {allBtnIcons.map((icon, index) => (
-            <a key={index} className={`fh-button${btnStyle !== '' ? `-${btnStyle}` : ``}-${colorQuery} fh-shape--${btnShape} fh-size--default fh-icon--${icon}`} onClick={() => setIcon(icon)}></a>
+            <a key={index} className={`fh-button${btnStyle !== '' ? `-${btnStyle}` : ``}-pop fh-shape--${btnShape} fh-size--default fh-icon--${icon}`} onClick={() => setIcon(icon)}></a>
             ))
           }
         </div>
@@ -27,7 +27,7 @@ function ButtonDemoCard({btnText, btnLink, btnIcon, setIcon, btnShape, setBtnSha
         <h3 className={titleStyles}>Choose Your Button Shape</h3>
         <div className={buttonDivStyles}>
           {allBtnShapes.map((shape, index) => (
-            <a key={index} className={`fh-button${btnStyle !== '' ? `-${btnStyle}` : ``}-${colorQuery} fh-shape--${shape} fh-size--${btnSize} fh-icon--${btnIcon}`} onClick={() => setBtnShape(shape)}>{btnText}</a>
+            <a key={index} className={`fh-button${btnStyle !== '' ? `-${btnStyle}` : ``}-pop fh-shape--${shape} fh-size--${btnSize} fh-icon--${btnIcon}`} onClick={() => setBtnShape(shape)}>{btnText}</a>
             ))
           }
 
@@ -38,7 +38,7 @@ function ButtonDemoCard({btnText, btnLink, btnIcon, setIcon, btnShape, setBtnSha
         <h3 className={titleStyles}>Choose Your Button Size</h3>
         <div className={buttonDivStyles}>
           {allBtnSizes.map((size, index) => (
-            <a key={index} className={`fh-button${btnStyle !== '' ? `-${btnStyle}` : ``}-${colorQuery} fh-shape--${btnShape} fh-size--${size} fh-icon--${btnIcon}`} onClick={() => setBtnSize(size)}>{btnText}</a>
+            <a key={index} className={`fh-button${btnStyle !== '' ? `-${btnStyle}` : ``}-pop fh-shape--${btnShape} fh-size--${size} fh-icon--${btnIcon}`} onClick={() => setBtnSize(size)}>{btnText}</a>
             ))
           }
         </div>
@@ -47,7 +47,7 @@ function ButtonDemoCard({btnText, btnLink, btnIcon, setIcon, btnShape, setBtnSha
         <h3 className={titleStyles}>Choose Your Button Style</h3>
         <div className={buttonDivStyles}>
           {allBtnStyles.map((style, index) => (
-            <a key={index} className={`fh-button${style !== '' ? `-${style}` : ``}-${colorQuery} fh-shape--${btnShape} fh-size--${btnSize} fh-icon--${btnIcon}`} onClick={() => setBtnStyle(style)}>{btnText}</a>
+            <a key={index} className={`fh-button${style !== '' ? `-${style}` : ``}-pop fh-shape--${btnShape} fh-size--${btnSize} fh-icon--${btnIcon}`} onClick={() => setBtnStyle(style)}>{btnText}</a>
             ))
           }
         </div>
