@@ -33,7 +33,7 @@ function InputCard({setText, setBtnLink, btnStyle, btnLocation, setBtnLocation, 
 
 
   return (
-    <div className='bg-[#1F2837] bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 text-white flex flex-col justify-start items-center w-full p-6 m-6 rounded-lg shadow-xl'>
+    <div className='bg-gray-100 border border-gray-200 rounded-lg flex flex-col justify-start items-center w-full p-6 m-6 rounded-lg shadow-xl'>
       
       <h1 className={titleStyles}>Input</h1>
       

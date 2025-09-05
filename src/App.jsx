@@ -71,7 +71,7 @@ function App() {
   }, [btnColor]);
 
   return (
-    <div className='flex flex-col bg-[#111827] p-10'>
+    <div className='flex flex-col bg-[#FFFFFF] p-10'>
       <TitleBar />
       <div className='flex'>
         <InputCard 

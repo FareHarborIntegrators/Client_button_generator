@@ -12,7 +12,7 @@ function ButtonDemoCard({btnText, btnLink, btnIcon, setIcon, btnShape, setBtnSha
   const buttonDivStyles = 'flex flex-col gap-4 justify-start';
 
   return (
-    <div className='bg-[#1F2837] border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 text-white flex justify-center items-start p-24 m-6 rounded-lg shadow-xl'>
+    <div className='bg-gray-100 border border-gray-200 rounded-lg flex justify-center items-start p-24 m-6 rounded-lg shadow-xl'>
       <div className={columnDivStyles}>
         <h3 className={titleStyles}>Select You Button Icon Here</h3>
         <div className='grid grid-cols-3 w-full justify-between gap-2 items-center'>
