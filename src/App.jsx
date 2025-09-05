@@ -14,10 +14,6 @@ function App() {
   const [btnStyle, setBtnStyle] = useState('2d');
   const [colorQuery, setColorQuery] = useState('blue');
   const [btnColor, setBtnColor] = useState('0a79e9');
-  const [gradientColorOne, setGradientColorOne] = useState('FD150C');
-  const [gradientColorTwo, setGradientColorTwo] = useState('FFC800');
-  const [applyGradient, setApplyGradient] = useState(false);
-  const [gradientAngle, setGradientAngle] = useState(135);
   const [btnLocation, setBtnLocation] = useState('');
   const [btnVisibility, setBtnVisibility] = useState('bothDesktopAndMobile');
   const [isLeft, setIsLeft] = useState(false);
@@ -94,10 +90,6 @@ function App() {
           isLeft={isLeft} setIsLeft={changeIsLeft}
           colorQuery={colorQuery} setColorQuery={changeColorQuery}
           btnColor={btnColor} setBtnColor={changeColor}
-          gradientColorOne={gradientColorOne} setGradientColorOne={setGradientColorOne}
-          gradientColorTwo={gradientColorTwo} setGradientColorTwo={setGradientColorTwo}
-          applyGradient={applyGradient} setApplyGradient={setApplyGradient}
-          gradientAngle={gradientAngle} setGradientAngle={setGradientAngle}
           />
         <OutputCard 
           btnText={btnText}
@@ -111,10 +103,6 @@ function App() {
           btnLocation={btnLocation}
           btnVisibility={btnVisibility}
           isLeft={isLeft}
-          applyGradient={applyGradient}
-          gradientColorOne={gradientColorOne}
-          gradientColorTwo={gradientColorTwo}
-          gradientAngle={gradientAngle}
           />
 
       </div>
@@ -126,10 +114,6 @@ function App() {
           btnStyle={btnStyle} setBtnStyle={changeBtnStyle}
           colorQuery={colorQuery} setColorQuery={changeColorQuery}
           btnColor={btnColor} setColor={changeColor}
-          applyGradient={applyGradient}
-          gradientColorOne={gradientColorOne}
-          gradientColorTwo={gradientColorTwo}
-          gradientAngle={gradientAngle}
           /> 
       </div>
   )

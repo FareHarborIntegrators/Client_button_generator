@@ -1,13 +1,12 @@
 import { useState } from "react";
 import ColorPicker from "./ColorPicker";
 
-function InputCard({setText, setBtnLink, btnStyle, btnLocation, setBtnLocation, btnVisibility, setBtnVisibility, isLeft, setIsLeft, setBtnStyle, setColorQuery, btnColor, setBtnColor, gradientColorOne, setGradientColorOne, gradientColorTwo, setGradientColorTwo, applyGradient, setApplyGradient, gradientAngle, setGradientAngle} ) {
+function InputCard({setText, setBtnLink, btnStyle, btnLocation, setBtnLocation, btnVisibility, setBtnVisibility, isLeft, setIsLeft, setBtnStyle, setColorQuery, btnColor, setBtnColor} ) {
 
   let inputStyles = 'border-gray-300 border-solid border-2 m-2 pl-1';
   const titleStyles= 'flex justify-center text-2xl ml-5 mr-5 mb-10';
   const radioStyles= 'peer-checked:bg-blue-600 peer-checked:text-white border border-blue-600 text-blue-600 px-4 py-2 rounded cursor-pointer transition';
   const h3Stylings = 'text-lg font-bold mb-1'
-  const gradientInputStyles = 'm-4 flex flex-col justify-center items-center'
 
   const handleBtnTxtInput = (textInput) => {
     setText(textInput.target.value);
@@ -32,13 +31,7 @@ function InputCard({setText, setBtnLink, btnStyle, btnLocation, setBtnLocation, 
 
     const handleBtnVisibility = (event) => {
     setBtnVisibility(event.target.value);
-  }
-
-  const handleGradientAngleInput = (event) => {
-    let correctedAngle = event.target.value % 360;
-    setGradientAngle(correctedAngle);
-  }
- 
+  } 
 
 
   return (
@@ -67,29 +60,6 @@ function InputCard({setText, setBtnLink, btnStyle, btnLocation, setBtnLocation, 
           <div className="flex justify-center items-center">
             {/* <input type="text-input" className={inputStyles} onChange={(e) => handleColorInput(e)} placeholder='0a79e9'/> */}
             <ColorPicker color={btnColor} setColor={setBtnColor} />
-          </div>
-        </div>
-      </div>
-
-      <div className='flex justify-around items-center mb-3'>
-        <div className='flex flex-col justify-center items-center m-3'>
-          <div className="m-2 p-2">
-              <input type="checkbox" name="apply-gradient" id="apply-gradient" checked={applyGradient} onChange={() => setApplyGradient(!applyGradient)}/>
-              <label className={`${h3Stylings} pl-2`} htmlFor="apply-gradient">Apply Gradient</label>
-            </div>
-          <div className="flex justify-center items-center">
-            <div className={gradientInputStyles}>
-              <div>Gradient Color 1</div>
-              <ColorPicker name="gradient-color-1" id="gradient-color-1" color={gradientColorOne} setColor={setGradientColorOne}/>
-            </div>
-            <div className={gradientInputStyles}>
-              <div>Gradient Color 2</div>
-              <ColorPicker name="gradient-color-2" id="gradient-color-2" color={gradientColorTwo} setColor={setGradientColorTwo}/>
-            </div>
-            <div className={gradientInputStyles}>
-              <label htmlFor="gradient-angle">Angle</label>
-              <input name="gradient-angle" id="gradient-angle" type="number" className={`${inputStyles} w-16`} onChange={(e) => handleGradientAngleInput(e)}/>
-            </div>
           </div>
         </div>
       </div>
