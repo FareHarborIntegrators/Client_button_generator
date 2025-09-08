@@ -24,37 +24,37 @@ function AdvancedTab({}) {
   } 
 
     return (
-        <div className='bg-gray-100 border border-gray-200 rounded-lg flex flex-col justify-start items-center w-full p-6 m-6 rounded-lg shadow-xl'>
+        <div>
 
-            <div className='flex flex-col justify-center items-center p-2 mb-10'>
-                <h3 className={h3Stylings}>Button</h3>
-                <div className='px-10'>{anchorString}</div>
+            <div className='flex flex-col justify-center items-center p-2 mb-4'>
+                <h3 className={h3Stylings}>Button HTML Output</h3>
+                <code className='px-10 text-gray-500 bg-white border border-gray-200 rounded-lg'>{anchorString}</code>
             </div>
 
             <div className='flex flex-col justify-center items-center p-2'>
-                <h3 className={h3Stylings}>Stylesheet</h3>
-                <div className='px-10'>{styleString}</div>
+                <h3 className={h3Stylings}>FareHarbor Stylesheet</h3>
+                <code className='px-10 text-gray-500 bg-white border border-gray-200 rounded-lg'>{styleString}</code>
             </div>
 
-            <div className='flex flex-col justify-center items-center'>
-        <h3 className={h3Stylings}>Button Visibility</h3>
-        <div className="flex flex-wrap justify-center items-center">
-          <div className="mx-1 my-3">
-            <input name="btnVisibility" id="bothDesktopAndMobile" type="radio" value="bothDesktopAndMobile" className="peer hidden" checked={btnVisibility === 'bothDesktopAndMobile'} onChange={(e) => handleBtnVisibility(e)}/>
-            <label htmlFor="bothDesktopAndMobile" className={radioStyles}>Desktop & Mobile</label>
-          </div>
-          <div className="mx-1 my-3">
-            <input name="btnVisibility" id="desktopOnly" type="radio" value="mobile" className="peer hidden" checked={btnVisibility === 'mobile'} onChange={(e) => handleBtnVisibility(e)}/>
-            <label htmlFor="desktopOnly" className={radioStyles}>Desktop Only</label>
-          </div>
-          <div className="mx-1 my-3">
-            <input name="btnVisibility" id="mobileOnly" type="radio" value="desktop" className="peer hidden" checked={btnVisibility === 'desktop'} onChange={(e) => handleBtnVisibility(e)}/>
-            <label htmlFor="mobileOnly" className={radioStyles}>Mobile Only</label>
-          </div>
-        </div>
-      </div>
+            <div className='flex flex-col justify-center items-center mt-4'>
+              <h3 className={h3Stylings}>Button Visibility</h3>
+              <div className="flex flex-wrap justify-center items-center">
+                <div className="mx-1 my-3">
+                  <input name="btnVisibility" id="bothDesktopAndMobile" type="radio" value="bothDesktopAndMobile" className="peer hidden" checked={btnVisibility === 'bothDesktopAndMobile'} onChange={(e) => handleBtnVisibility(e)}/>
+                  <label htmlFor="bothDesktopAndMobile" className={radioStyles}>Desktop & Mobile</label>
+                </div>
+                <div className="mx-1 my-3">
+                  <input name="btnVisibility" id="desktopOnly" type="radio" value="mobile" className="peer hidden" checked={btnVisibility === 'mobile'} onChange={(e) => handleBtnVisibility(e)}/>
+                  <label htmlFor="desktopOnly" className={radioStyles}>Desktop Only</label>
+                </div>
+                <div className="mx-1 my-3">
+                  <input name="btnVisibility" id="mobileOnly" type="radio" value="desktop" className="peer hidden" checked={btnVisibility === 'desktop'} onChange={(e) => handleBtnVisibility(e)}/>
+                  <label htmlFor="mobileOnly" className={radioStyles}>Mobile Only</label>
+                </div>
+              </div>
+            </div>
 
-        </div>
+         </div>
     )
 }
 

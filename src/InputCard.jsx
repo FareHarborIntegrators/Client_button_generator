@@ -17,10 +17,10 @@ function InputCard() {
   ];
 
   return (
-    <div className="w-full">
+    <div className="flex flex-col justify-start items-center w-full basis-2/3">
       <div className="relative right-0">
         {/* Tab buttons */}
-        <ul className="relative flex flex-wrap px-1.5 py-1.5 list-none rounded-md bg-slate-100" role="tablist">
+        <ul className="relative flex flex-wrap px-1.5 py-1.5 list-none rounded-md bg-gray-300" role="tablist">
           {tabs.map((tab) => (
             <li key={tab.id} className="z-30 flex-auto text-center">
               <button
