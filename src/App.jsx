@@ -1,62 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { ButtonProvider } from './ButtonContext';
-import ButtonDemoCard from './ButtonDemoCard';
 import InputCard from './inputCard'
 import OutputCard from './outputCard';
 import TitleBar from './titleBar';
-import TabbedContentTest from './TabbedContentTest';
 import './App.css'
 
-function App() {
-  const [btnText, setText] = useState('Book Now');
-  const [btnLink, setBtnLink] = useState('BOOKING LINK');
-  const [btnIcon, setIcon] = useState('calendar-check');
-  const [btnShape, setBtnShape] = useState('default');
-  const [btnSize, setBtnSize] = useState('default');
-  const [btnStyle, setBtnStyle] = useState('2d');
-  const [btnColor, setBtnColor] = useState('0a79e9');
-  const [btnLocation, setBtnLocation] = useState('');
-  const [btnVisibility, setBtnVisibility] = useState('bothDesktopAndMobile');
-  const [isLeft, setIsLeft] = useState(false);
+function DynamicStyleSheetLoader() {
+  const { btnColor } = useButtonContext(); // Get color from context
 
-  const changeText = (choice) => {
-    setText(choice);
-  }
-
-  const changeLink = (choice) => {
-    setBtnLink(choice);
-  }
-
-  const changeIcon = (choice) => {
-    setIcon(choice);
-  }
-  const changeBtnShape = (choice) => {
-    setBtnShape(choice);
-  }
-  const changeBtnSize = (choice) => {
-    setBtnSize(choice);
-  }
-  const changeBtnStyle = (choice) => {
-    setBtnStyle(choice);
-  }
-  const changeColor = (choice) => {
-    setBtnColor(choice);
-  }
-  const changeBtnLocation = (choice) => {
-    setBtnLocation(choice);
-  }
-  const changeBtnVisibility = (choice) => {
-    setBtnVisibility(choice);
-  }
-  const changeIsLeft = () => {
-    setIsLeft(!isLeft);
-  }
-  
-  // Update or insert stylesheet when color changes
   useEffect(() => {
     const id = 'dynamic-fh-style';
     let existingLink = document.getElementById(id);
-
     const href = `https://fh-kit.com/buttons/v2/?pop=${btnColor}`;
 
     if (existingLink) {
@@ -72,38 +26,19 @@ function App() {
     }
   }, [btnColor]);
 
+  return null; // This component only manages side effects
+}
+
+function App() {
   return (
     <ButtonProvider>
       <div className='flex flex-col bg-[#FFFFFF] p-10'>
         <TitleBar />
         <div className='flex'>
-          <InputCard 
-            btnLink={btnLink} setBtnLink={changeLink}
-            btnIcon={btnIcon} setIcon={changeIcon}
-            btnShape={btnShape} setBtnShape={changeBtnShape}
-            btnSize={btnSize} setBtnSize={changeBtnSize} 
-            btnStyle={btnStyle} setBtnStyle={changeBtnStyle}
-            btnLocation={btnLocation} setBtnLocation={changeBtnLocation}
-            btnVisibility={btnVisibility} setBtnVisibility={changeBtnVisibility}
-            isLeft={isLeft} setIsLeft={changeIsLeft}
-            btnColor={btnColor} setBtnColor={changeColor}
-            />
-          <OutputCard 
-            isLeft={isLeft}
-            />
-          <TabbedContentTest/>
-        </div>
-        
-        <ButtonDemoCard 
-          btnText={btnText}
-          btnIcon={btnIcon} setIcon={changeIcon}
-          btnShape={btnShape} setBtnShape={changeBtnShape}
-          btnSize={btnSize} setBtnSize={changeBtnSize} 
-          btnStyle={btnStyle} setBtnStyle={changeBtnStyle}
-          btnColor={btnColor} setColor={changeColor}
-          /> 
+          <InputCard/>
+          <OutputCard/>
+        </div> 
       </div>
-  
     </ButtonProvider>
   )
 }
