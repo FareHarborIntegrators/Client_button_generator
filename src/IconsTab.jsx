@@ -13,8 +13,8 @@ function IconsTab({}) {
 
     return (
         <div className={columnDivStyles}>
-        <h3 className={titleStyles}>Select You Button Icon Here</h3>
-        <div className='grid grid-cols-3 w-full justify-between gap-2 items-center'>
+        <h3 className={titleStyles}>Select a Button Icon</h3>
+        <div className='flex flex-wrap w-full justify-center gap-2 items-center'>
           {allBtnIcons.map((icon, index) => (
             <a key={index} className={`fh-button${btnStyle !== '' ? `-${btnStyle}` : ``}-pop fh-shape--${btnShape} fh-size--small fh-icon--${icon}`} onClick={() => setBtnIcon(icon)}></a>
             ))

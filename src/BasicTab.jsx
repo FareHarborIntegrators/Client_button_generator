@@ -27,25 +27,25 @@ function BasicTab({}) {
 
     return (
         <div>
-            <div className="flex justify-around items-center mb-3">
-                <div className='flex flex-col justify-center items-center m-3'>
+            <div className="flex justify-center items-center mb-3">
+                <div className='flex flex-col justify-start items-center m-3 w-full'>
                     <h3 className={h3Stylings}>Button Text</h3>
                     <input type="text-input" className={inputStyles} onChange={(e) => handleBtnTxtInput(e)} placeholder='Book Now'/>
                 </div>
-                <div className='flex flex-col justify-center items-center m-3'>
+                <div className='flex flex-col justify-center items-center m-3 w-full'>
                     <h3 className={h3Stylings}>Button Link</h3>
                     <input type="text-input" className={inputStyles} onChange={(e) => handleBtnLinkInput(e)} placeholder='Booking Link'/>
                 </div>
             </div>
         
-            <div className='flex justify-around items-center mb-3'>
-                <div className='flex flex-col justify-center items-center m-3'>
+            <div className='flex justify-center items-center mb-3'>
+                <div className='flex flex-col justify-center items-center m-3 w-full'>
                     <h3 className={h3Stylings}>Button Color</h3>
                     <div className="flex justify-center items-center">
                         <ColorPicker color={btnColor} setColor={setBtnColor} />
                     </div>
                 </div>
-                <div className='flex flex-col items-center justify-center'>
+                <div className='flex flex-col items-center justify-center w-full'>
                     <h3 className={h3Stylings}>Button Location</h3>
                     <div className="grid grid-flow-col grid-rows-2 gap-1">
                         <div className="w-full flex">
