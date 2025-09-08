@@ -5,9 +5,9 @@ const ButtonContext = createContext();
 export const useButtonContext = () => useContext(ButtonContext);
 
 export const ButtonProvider = ({ children }) => {
-  const [btnText, setText] = useState('Book Now');
+  const [btnText, setBtnText] = useState('Book Now');
   const [btnLink, setBtnLink] = useState('BOOKING LINK');
-  const [btnIcon, setIcon] = useState('calendar-check');
+  const [btnIcon, setBtnIcon] = useState('calendar-check');
   const [btnShape, setBtnShape] = useState('default');
   const [btnSize, setBtnSize] = useState('default');
   const [btnStyle, setBtnStyle] = useState('2d');
@@ -16,9 +16,9 @@ export const ButtonProvider = ({ children }) => {
   const [btnVisibility, setBtnVisibility] = useState('bothDesktopAndMobile');
 
   const value = {
-    btnText, setText,
+    btnText, setBtnText,
     btnLink, setBtnLink,
-    btnIcon, setIcon,
+    btnIcon, setBtnIcon,
     btnShape, setBtnShape,
     btnSize, setBtnSize,
     btnStyle, setBtnStyle,

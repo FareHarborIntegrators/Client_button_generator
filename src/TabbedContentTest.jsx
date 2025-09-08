@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { useButtonContext } from './ButtonContext';
+import BasicTab from './BasicTab';
+import IconsTab from './IconsTab';
+import AppearanceTab from './AppearanceTab';
+import AdvancedTab from './AdvancedTab';
 
 
 // Example Components for each tab
 function DashboardTab() {
       const {
-        setText,
+        setBtnText,
       } = useButtonContext();
       
       const handleBtnTxtInput = (textInput) => {
-        setText(textInput.target.value);
+        setBtnText(textInput.target.value);
       }
       let inputStyles = 'border-gray-300 border-solid border-2 m-2 pl-1';
       const h3Stylings = 'text-lg font-bold mb-1'
@@ -41,10 +45,10 @@ function TabbedContentTest() {
   const [activeTab, setActiveTab] = useState('dashboard');
 
   const tabs = [
-    { id: 'dashboard', label: 'Basic', Component: DashboardTab },
-    { id: 'profile', label: 'Shape/Style', Component: ProfileTab },
-    { id: 'settings', label: 'Advanced', Component: SettingsTab },
-    { id: 'icons', label: 'Icons', Component: SettingsTab }
+    { id: 'dashboard', label: 'Basic', Component: BasicTab },
+    { id: 'appearance', label: 'Appearance', Component: AppearanceTab },
+    { id: 'settings', label: 'Advanced', Component: AdvancedTab },
+    { id: 'icons', label: 'Icons', Component: IconsTab }
   ];
 
   return (
