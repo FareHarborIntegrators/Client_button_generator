@@ -1,13 +1,17 @@
 import { useState } from "react";
 import ColorPicker from "./ColorPicker";
+import { useButtonContext } from './ButtonContext';
 
-function InputCard({setText, setBtnLink, btnStyle, btnLocation, setBtnLocation, btnVisibility, setBtnVisibility, isLeft, setIsLeft, setBtnStyle, btnColor, setBtnColor} ) {
+function InputCard({ setBtnLink, btnStyle, btnLocation, setBtnLocation, btnVisibility, setBtnVisibility, isLeft, setIsLeft, setBtnStyle, btnColor, setBtnColor} ) {
 
   let inputStyles = 'border-gray-300 border-solid border-2 m-2 pl-1';
   const titleStyles= 'flex justify-center text-2xl ml-5 mr-5 mb-10';
   const radioStyles= 'peer-checked:bg-blue-600 peer-checked:text-white border border-blue-600 text-blue-600 px-4 py-2 rounded cursor-pointer transition';
   const h3Stylings = 'text-lg font-bold mb-1'
-
+  const {
+    setText,
+  } = useButtonContext();
+  
   const handleBtnTxtInput = (textInput) => {
     setText(textInput.target.value);
   }

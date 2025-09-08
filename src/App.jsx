@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
-import ButtonDemoCard from './buttonDemoCard';
+import { ButtonProvider } from './ButtonContext';
+import ButtonDemoCard from './ButtonDemoCard';
 import InputCard from './inputCard'
 import OutputCard from './outputCard';
 import TitleBar from './titleBar';
+import TabbedContentTest from './TabbedContentTest';
 import './App.css'
 
 function App() {
@@ -71,35 +73,27 @@ function App() {
   }, [btnColor]);
 
   return (
-    <div className='flex flex-col bg-[#FFFFFF] p-10'>
-      <TitleBar />
-      <div className='flex'>
-        <InputCard 
-          btnText={btnText} setText={changeText}
-          btnLink={btnLink} setBtnLink={changeLink}
-          btnIcon={btnIcon} setIcon={changeIcon}
-          btnShape={btnShape} setBtnShape={changeBtnShape}
-          btnSize={btnSize} setBtnSize={changeBtnSize} 
-          btnStyle={btnStyle} setBtnStyle={changeBtnStyle}
-          btnLocation={btnLocation} setBtnLocation={changeBtnLocation}
-          btnVisibility={btnVisibility} setBtnVisibility={changeBtnVisibility}
-          isLeft={isLeft} setIsLeft={changeIsLeft}
-          btnColor={btnColor} setBtnColor={changeColor}
-          />
-        <OutputCard 
-          btnText={btnText}
-          btnLink={btnLink}
-          btnIcon={btnIcon}
-          btnShape={btnShape}
-          btnSize={btnSize}
-          btnStyle={btnStyle}
-          btnColor={btnColor}
-          btnLocation={btnLocation}
-          btnVisibility={btnVisibility}
-          isLeft={isLeft}
-          />
-
-      </div>
+    <ButtonProvider>
+      <div className='flex flex-col bg-[#FFFFFF] p-10'>
+        <TitleBar />
+        <div className='flex'>
+          <InputCard 
+            btnLink={btnLink} setBtnLink={changeLink}
+            btnIcon={btnIcon} setIcon={changeIcon}
+            btnShape={btnShape} setBtnShape={changeBtnShape}
+            btnSize={btnSize} setBtnSize={changeBtnSize} 
+            btnStyle={btnStyle} setBtnStyle={changeBtnStyle}
+            btnLocation={btnLocation} setBtnLocation={changeBtnLocation}
+            btnVisibility={btnVisibility} setBtnVisibility={changeBtnVisibility}
+            isLeft={isLeft} setIsLeft={changeIsLeft}
+            btnColor={btnColor} setBtnColor={changeColor}
+            />
+          <OutputCard 
+            isLeft={isLeft}
+            />
+          <TabbedContentTest/>
+        </div>
+        
         <ButtonDemoCard 
           btnText={btnText}
           btnIcon={btnIcon} setIcon={changeIcon}
@@ -109,6 +103,8 @@ function App() {
           btnColor={btnColor} setColor={changeColor}
           /> 
       </div>
+  
+    </ButtonProvider>
   )
 }
 

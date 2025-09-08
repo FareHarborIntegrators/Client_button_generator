@@ -1,11 +1,25 @@
 import React from 'react'
+import { useButtonContext } from './ButtonContext';
 
-function OutputCard({btnText, btnLink, btnIcon, btnShape, btnSize, btnStyle, btnColor, btnLocation, btnVisibility, isLeft }) {
+function OutputCard({ isLeft }) {
+  
+   const {
+    btnText,
+    btnLink,
+    btnColor,
+    btnSize,
+    btnShape,
+    btnStyle,
+    btnIcon,
+    btnVisibility,
+    btnLocation,
+  } = useButtonContext();
 
   let anchorString = `<a href="${btnLink}" class="fh-button${btnStyle !== '' ? `-${btnStyle}` : ``}-pop fh-font--inherit fh-icon--${btnIcon} fh-shape--${btnShape} fh-size--${btnSize} ${!isLeft ? `fh-fixed--${btnLocation}` : ''} ${btnVisibility === 'bothDesktopAndMobile' ? '':`fh-hide--${btnVisibility}`}">${btnText}</a>`;
   let styleString = `<link rel="stylesheet" href="https://fh-kit.com/buttons/v2/?pop=${btnColor}" type="text/css" media="screen" />`
   const titleStyles= 'flex justify-center text-2xl ml-5 mr-5 mb-10';
   const h3Stylings = 'text-lg font-bold mb-2';
+ 
 
   return (
     <div className='bg-gray-100 border border-gray-200 rounded-lg flex flex-col justify-start items-center w-full p-6 m-6 rounded-lg shadow-xl'>
