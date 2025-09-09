@@ -1,7 +1,7 @@
 import { ButtonProvider } from './ButtonContext';
-import InputCard from './inputCard'
-import OutputCard from './outputCard';
-import TitleBar from './titleBar';
+import InputCard from './InputCard'
+import OutputCard from './OutputCard';
+import TitleBar from './TitleBar';
 import DynamicStyleSheetLoader from './Hooks/DynamicStyleSheetLoader';
 import './App.css'
 
@@ -15,6 +15,7 @@ function App() {
           <InputCard/>
           <OutputCard/>
         </div> 
+        
       </div>
     </ButtonProvider>
   )

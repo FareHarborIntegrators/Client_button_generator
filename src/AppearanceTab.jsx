@@ -1,17 +1,40 @@
 import { useButtonContext } from './ButtonContext';
+import RadioDropdown from "./RadioDropdown";
+import StationaryColorPicker from './StationaryColorPicker';
 
 function AppearanceTab({}) {
     const allBtnShapes = ['default', 'round', 'square'];
     const allBtnSizes = ['small', 'default', 'large'];
     const allBtnStyles = ['', '2d', 'true-flat', 'flat', 'outline'];
-    const titleStyles= 'flex justify-center text-lg font-bold mt-4 mb-2';
-    const buttonDivStyles = 'flex gap-2 justify-center items-center flex-wrap';
+    const titleStyles= 'flex justify-center text-md mt-4 mb-2';
+    const buttonDivStyles = 'flex gap-2 justify-center items-end flex-wrap';
+
+    const btnSizeDropdown = [
+      { value: "small", label: "Small" },
+      { value: "default", label: "Default" },
+      { value: "large", label: "Large" },
+    ];
+    const btnShapeDropdown = [
+      { value: "default", label: "Default" },
+      { value: "round", label: "Round" },
+      { value: "square", label: "Square" },
+    ];
+    const btnStyleDropdown = [
+      { value: "", label: "Default" },
+      { value: "2d", label: "2.5D" },
+      { value: "true-flat", label: "Flat 1" },
+      { value: "flat", label: "Flat 2" },
+      { value: "outline", label: "Outline" },
+    ];
 
     const {
             btnText,
-            btnStyle,
+            btnColor,
             btnShape,
             btnIcon,
+            btnSize,
+            btnStyle,
+            setBtnColor,
             setBtnShape,
             setBtnStyle,
             setBtnSize,
@@ -20,31 +43,31 @@ function AppearanceTab({}) {
 
 
     return (
-    <div>
-        <h3 className={titleStyles}>Button Shape</h3>
-        <div className={buttonDivStyles}>
-          {allBtnShapes.map((shape, index) => (
-            <a key={index} className={`fh-button${btnStyle !== '' ? `-${btnStyle}` : ``}-pop fh-shape--${shape} fh-size--small fh-icon--${btnIcon}`} onClick={() => setBtnShape(shape)}>{btnText}</a>
-            ))
-          }
-
+    <div className='flex w-full h-full justify-around items-around'>
+        <div className='flex h-full w-full flex-col justify-center items-start'>
+          <div className='block mb-1 text-sm font-medium text-gray-700'>Button Color</div>
+          <StationaryColorPicker color={btnColor} setColor={setBtnColor} />
         </div>
 
-
-        <h3 className={titleStyles}>Button Size</h3>
-        <div className={buttonDivStyles}>
-          {allBtnSizes.map((size, index) => (
-            <a key={index} className={`fh-button${btnStyle !== '' ? `-${btnStyle}` : ``}-pop fh-shape--${btnShape} fh-size--${size} fh-icon--${btnIcon}`} onClick={() => setBtnSize(size)}>{btnText}</a>
-            ))
-          }
-        </div>
-
-        <h3 className={titleStyles}>Button Style</h3>
-        <div className={`${buttonDivStyles}`}>
-          {allBtnStyles.map((style, index) => (
-            <a key={index} className={`fh-button${style !== '' ? `-${style}` : ``}-pop fh-shape--${btnShape} fh-size--small fh-icon--${btnIcon}`} onClick={() => setBtnStyle(style)}>{btnText}</a>
-            ))
-          }
+        <div className='flex h-full w-full flex-col justify-center items-center gap-4'>
+          <RadioDropdown
+            label="Button Shape"
+            options={btnShapeDropdown}
+            value={btnShape}
+            onChange={setBtnShape}
+          />
+          <RadioDropdown
+            label="Button Size"
+            options={btnSizeDropdown}
+            value={btnSize}
+            onChange={setBtnSize}
+          />
+          <RadioDropdown
+            label="Button Style"
+            options={btnStyleDropdown}
+            value={btnStyle}
+            onChange={setBtnStyle}
+          />
         </div>
       </div>
     )

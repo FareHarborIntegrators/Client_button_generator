@@ -1,10 +1,9 @@
 import { useButtonContext } from './ButtonContext';
-import ColorPicker from './ColorPicker';
 
 function BasicTab({}) {
     const inputStyles = 'border-gray-300 border-solid border-2 m-2 pl-1';
     const radioStyles= 'w-full flex justify-center peer-checked:bg-blue-600 peer-checked:text-white border border-blue-600 text-blue-600 px-4 py-2 rounded cursor-pointer transition';
-    const h3Stylings = 'text-md font-bold mb-1'
+    const h3Stylings = 'text-md mb-1'
     const {
             btnColor,
             btnLocation,
@@ -26,25 +25,19 @@ function BasicTab({}) {
     }
 
     return (
-        <div>
-            <div className="flex justify-center items-center mb-3">
+        <div className="flex flex-col justify-around items-around h-full w-full">
+            <div className="flex justify-around items-around mb-3">
                 <div className='flex flex-col justify-start items-center m-3 w-full'>
                     <h3 className={h3Stylings}>Button Text</h3>
                     <input type="text-input" className={inputStyles} onChange={(e) => handleBtnTxtInput(e)} placeholder='Book Now'/>
                 </div>
                 <div className='flex flex-col justify-center items-center m-3 w-full'>
-                    <h3 className={h3Stylings}>Button Link</h3>
+                    <h3 className={h3Stylings}>FareHarbor Booking Link</h3>
                     <input type="text-input" className={inputStyles} onChange={(e) => handleBtnLinkInput(e)} placeholder='Booking Link'/>
                 </div>
             </div>
         
             <div className='flex justify-center items-center mb-3'>
-                <div className='flex flex-col justify-center items-center m-3 w-full'>
-                    <h3 className={h3Stylings}>Button Color</h3>
-                    <div className="flex justify-center items-center">
-                        <ColorPicker color={btnColor} setColor={setBtnColor} />
-                    </div>
-                </div>
                 <div className='flex flex-col items-center justify-center w-full'>
                     <h3 className={h3Stylings}>Button Location</h3>
                     <div className="grid grid-flow-col grid-rows-2 gap-1">

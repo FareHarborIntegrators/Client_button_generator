@@ -3,7 +3,7 @@ import { useButtonContext } from './ButtonContext';
 function IconsTab({}) {
     const allBtnIcons = ['cal', 'gift', 'map', 'check', 'arrow', 'ticket', 'check-bubble', 'dollar', 'clock', 'user', 'users', 'lock', 'phone', 'camera', 'beer', 'anchor', 'ship', 'location', 'caret-right', 'cutlery', 'bus', 'taxi', 'shopping-cart', 'life-ring', 'bed', 'check-square', 'calendar-check'];
     const columnDivStyles = 'flex flex-col items-center m-2 p-2 basis-1/4';
-    const titleStyles= 'flex justify-center text-2xl ml-5 mr-5 mb-10';
+    const titleStyles= 'flex justify-center text-md ml-5 mr-5 mb-10';
     const {
             btnStyle,
             btnShape,
