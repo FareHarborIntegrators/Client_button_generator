@@ -11,7 +11,7 @@ function IconsTab({}) {
 
 
     return (
-      <div className='flex flex-col h-3/4 justify-center items-start p-2 mb-4'>
+      <div className='flex flex-col h-3/4 justify-start items-start pl-2 pr-2 pt-6 mb-4'>
         <h3 className={titleStyles}>Select a Button Icon</h3>
         <div className='flex flex-wrap w-full justify-start gap-2 items-start'>
           {allBtnIcons.map((icon, index) => (

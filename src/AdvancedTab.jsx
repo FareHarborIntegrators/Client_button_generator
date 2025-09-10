@@ -24,19 +24,19 @@ function AdvancedTab({}) {
   } 
 
     return (
-        <div>
+        <div className='flex flex-col h-3/4 justify-start items-start pl-2 pr-2 pt-6'>
 
-            <div className='flex flex-col justify-center items-start p-2 mb-4'>
+            <div className='flex flex-col justify-center items-start mb-4'>
                 <h3 className={h3Stylings}>Button HTML Output</h3>
                 <code className='text-sm px-10 py-3 text-gray-500 bg-white border border-gray-200 rounded-lg'>{anchorString}</code>
             </div>
 
-            <div className='flex flex-col justify-center items-start p-2'>
+            <div className='flex flex-col justify-center items-start'>
                 <h3 className={h3Stylings}>FareHarbor Stylesheet</h3>
                 <code className='text-sm px-10 py-3 text-gray-500 bg-white border border-gray-200 rounded-lg'>{styleString}</code>
             </div>
 
-            <div className='flex flex-col justify-center items-start p-2 mt-4'>
+            <div className='flex flex-col justify-center items-start mt-4'>
               <h3 className={h3Stylings}>Button Visibility</h3>
               <div className="flex flex-wrap justify-start items-center">
                 <div className="mx-1 my-3">

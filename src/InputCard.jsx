@@ -9,7 +9,7 @@ function InputCard() {
   const [activeTab, setActiveTab] = useState('basic');
 
   const tabs = [
-    { id: 'basic', label: 'Basic', Component: BasicTab },
+    { id: 'basic', label: 'Basic Config.', Component: BasicTab },
     { id: 'appearance', label: 'Appearance', Component: AppearanceTab },
     { id: 'icons', label: 'Icons', Component: IconsTab },
     { id: 'advanced', label: 'Advanced', Component: AdvancedTab },
