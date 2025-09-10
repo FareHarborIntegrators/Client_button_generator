@@ -16,8 +16,8 @@ function AdvancedTab({}) {
 
   let anchorString = `<a href="${btnLink}" class="fh-button${btnStyle !== '' ? `-${btnStyle}` : ``}-pop fh-font--inherit fh-icon--${btnIcon} fh-shape--${btnShape} fh-size--${btnSize} fh-fixed--${btnLocation} ${btnVisibility === 'bothDesktopAndMobile' ? '':`fh-hide--${btnVisibility}`}">${btnText}</a>`;
   let styleString = `<link rel="stylesheet" href="https://fh-kit.com/buttons/v2/?pop=${btnColor}" type="text/css" media="screen" />`
-  const h3Stylings = 'text-md mb-2';
-  const radioStyles= 'peer-checked:bg-blue-600 peer-checked:text-white border border-blue-600 text-blue-600 px-4 py-2 rounded cursor-pointer transition';
+  const h3Stylings = 'block mb-1 text-sm font-medium text-gray-700';
+  const radioStyles= 'text-sm peer-checked:bg-blue-600 peer-checked:text-white border border-blue-600 text-blue-600 px-4 py-2 rounded cursor-pointer transition';
 
   const handleBtnVisibility = (event) => {
     setBtnVisibility(event.target.value);
@@ -26,19 +26,19 @@ function AdvancedTab({}) {
     return (
         <div>
 
-            <div className='flex flex-col justify-center items-center p-2 mb-4'>
+            <div className='flex flex-col justify-center items-start p-2 mb-4'>
                 <h3 className={h3Stylings}>Button HTML Output</h3>
-                <code className='px-10 py-5 text-gray-500 bg-white border border-gray-200 rounded-lg'>{anchorString}</code>
+                <code className='text-sm px-10 py-3 text-gray-500 bg-white border border-gray-200 rounded-lg'>{anchorString}</code>
             </div>
 
-            <div className='flex flex-col justify-center items-center p-2'>
+            <div className='flex flex-col justify-center items-start p-2'>
                 <h3 className={h3Stylings}>FareHarbor Stylesheet</h3>
-                <code className='px-10 py-5 text-gray-500 bg-white border border-gray-200 rounded-lg'>{styleString}</code>
+                <code className='text-sm px-10 py-3 text-gray-500 bg-white border border-gray-200 rounded-lg'>{styleString}</code>
             </div>
 
-            <div className='flex flex-col justify-center items-center mt-4'>
+            <div className='flex flex-col justify-center items-start p-2 mt-4'>
               <h3 className={h3Stylings}>Button Visibility</h3>
-              <div className="flex flex-wrap justify-center items-center">
+              <div className="flex flex-wrap justify-start items-center">
                 <div className="mx-1 my-3">
                   <input name="btnVisibility" id="bothDesktopAndMobile" type="radio" value="bothDesktopAndMobile" className="peer hidden" checked={btnVisibility === 'bothDesktopAndMobile'} onChange={(e) => handleBtnVisibility(e)}/>
                   <label htmlFor="bothDesktopAndMobile" className={radioStyles}>Desktop & Mobile</label>

@@ -1,9 +1,9 @@
 import { useButtonContext } from './ButtonContext';
 
 function BasicTab({}) {
-    const inputStyles = 'border-gray-300 border-solid border-2 m-2 pl-1';
-    const radioStyles= 'w-full flex justify-center peer-checked:bg-blue-600 peer-checked:text-white border border-blue-600 text-blue-600 px-4 py-2 rounded cursor-pointer transition';
-    const h3Stylings = 'text-md mb-1'
+    const inputStyles = 'pl-2 pt-1 pb-1 w-full text-sm bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-auto';
+    const radioStyles= 'text-sm w-full flex justify-center peer-checked:bg-blue-600 peer-checked:text-white border border-blue-600 text-blue-600 px-4 py-2 rounded cursor-pointer transition';
+    const h3Stylings = 'block mb-1 pl-1 text-sm font-medium text-gray-700'
     const {
             btnColor,
             btnLocation,
@@ -27,20 +27,20 @@ function BasicTab({}) {
     return (
         <div className="flex flex-col justify-around items-around h-full w-full">
             <div className="flex justify-around items-around mb-3">
-                <div className='flex flex-col justify-start items-center m-3 w-full'>
+                <div className='flex flex-col justify-start items-start m-3 w-full'>
                     <h3 className={h3Stylings}>Button Text</h3>
                     <input type="text-input" className={inputStyles} onChange={(e) => handleBtnTxtInput(e)} placeholder='Book Now'/>
                 </div>
-                <div className='flex flex-col justify-center items-center m-3 w-full'>
+                <div className='flex flex-col justify-center items-start m-3 w-full'>
                     <h3 className={h3Stylings}>FareHarbor Booking Link</h3>
                     <input type="text-input" className={inputStyles} onChange={(e) => handleBtnLinkInput(e)} placeholder='Booking Link'/>
                 </div>
             </div>
         
             <div className='flex justify-center items-center mb-3'>
-                <div className='flex flex-col items-center justify-center w-full'>
+                <div className=' m-3 flex flex-col items-start justify-center w-full'>
                     <h3 className={h3Stylings}>Button Location</h3>
-                    <div className="grid grid-flow-col grid-rows-2 gap-1">
+                    <div className="grid grid-flow-col grid-cols-2 md:grid-cols-4 gap-1">
                         <div className="w-full flex">
                             <input name="fixedLocation" id="standard-button" type="radio" value='' className="peer hidden" checked={btnLocation === ''} onChange={(e) => handleBtnLocationInput(e)}/>
                             <label htmlFor="standard-button" className={radioStyles}>Standard</label>

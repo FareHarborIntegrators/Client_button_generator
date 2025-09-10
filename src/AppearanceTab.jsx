@@ -3,11 +3,6 @@ import RadioDropdown from "./RadioDropdown";
 import StationaryColorPicker from './StationaryColorPicker';
 
 function AppearanceTab({}) {
-    const allBtnShapes = ['default', 'round', 'square'];
-    const allBtnSizes = ['small', 'default', 'large'];
-    const allBtnStyles = ['', '2d', 'true-flat', 'flat', 'outline'];
-    const titleStyles= 'flex justify-center text-md mt-4 mb-2';
-    const buttonDivStyles = 'flex gap-2 justify-center items-end flex-wrap';
 
     const btnSizeDropdown = [
       { value: "small", label: "Small" },
@@ -28,10 +23,8 @@ function AppearanceTab({}) {
     ];
 
     const {
-            btnText,
             btnColor,
             btnShape,
-            btnIcon,
             btnSize,
             btnStyle,
             setBtnColor,
