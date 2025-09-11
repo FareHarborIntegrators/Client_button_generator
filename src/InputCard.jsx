@@ -34,11 +34,11 @@ function InputCard() {
                 aria-selected={activeTab === tab.id}
                 aria-controls={tab.id}
               >
-                <span className="flex items-center justify-center">
-                  <div className="flex items-center justify-center">
+                <span className="flex flex-col items-center justify-center">
+                  <div className="flex items-center justify-center pb-1">
                     {tab.icon}
                   </div>
-                  <div className="flex items-center justify-center pl-1">
+                  <div className="flex items-center justify-center">
                     {tab.label}
                   </div>
                 </span>
