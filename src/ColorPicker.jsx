@@ -30,9 +30,8 @@ const ColorPicker = ({ color, setColor }) => {
     swatch: {
       padding: '3px',
       background: '#ffffffff',
-      border: '1px solid #d9d9d9ff',
       borderRadius: '100%',
-      boxShadow: '2px 4px 8px 3px rgba(0,0,0,.1)',
+      boxShadow: '0px 3px 8px 3px rgba(0,0,0,.1)',
       display: 'inline-block',
       cursor: 'pointer',
     },
