@@ -21,23 +21,25 @@ const ColorPicker = ({ color, setColor }) => {
 
   const styles = {
     color: {
-      width: '120px',
+      width: '40px',
       height: '20px',
-      margin: '2px',
-      borderRadius: '2px',
+      margin: '1px',
+      borderRadius: '5px',
       background: previewColor, // HEX string
     },
     swatch: {
-      padding: '5px',
-      background: '#fff',
-      borderRadius: '1px',
-      boxShadow: '0 0 0 1px rgba(0,0,0,.1)',
+      padding: '3px',
+      background: '#ffffffff',
+      border: '1px solid #d9d9d9ff',
+      borderRadius: '5px',
+      boxShadow: '2px 4px 8px 3px rgba(0,0,0,.1)',
       display: 'inline-block',
       cursor: 'pointer',
     },
     popover: {
       position: 'absolute',
       zIndex: '2',
+      right: '0px',
     },
     cover: {
       position: 'fixed',

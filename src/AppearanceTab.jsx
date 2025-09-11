@@ -36,9 +36,9 @@ function AppearanceTab({}) {
 
 
     return (
-    <div className='flex flex-col md:flex-row w-full h-full justify-start items-start pl-2 pr-2 pt-6 mb-4'>
-        <div className='flex h-full w-full flex-col justify-center md:justify-start items-center md:items-start mb-4'>
-          <div className='block mb-1 text-sm font-medium text-gray-700'>Button Color</div>
+    <div className='flex flex-col md:flex-row w-full h-full justify-center items-center pl-2 pr-2 pt-6 mb-4'>
+        <div className='flex h-full w-full flex-col justify-center md:justify-start items-center mb-4'>
+          <div className='-ml-35 block mb-1 text-sm font-medium text-gray-700'>Button Color</div>
           <StationaryColorPicker color={btnColor} setColor={setBtnColor} />
         </div>
 
