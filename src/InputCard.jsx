@@ -1,4 +1,8 @@
 import { useState } from "react";
+import BasicIcon from "./Icons/BasicIcon";
+import AppearanceIcon from "./Icons/AppearanceIcon";
+import IconsIcon from "./Icons/IconsIcon";
+import AdvancedIcon from "./Icons/AdvancedIcon";
 import BasicTab from './BasicTab';
 import IconsTab from './IconsTab';
 import AppearanceTab from './AppearanceTab';
@@ -9,11 +13,10 @@ function InputCard() {
   const [activeTab, setActiveTab] = useState('basic');
 
   const tabs = [
-    { id: 'basic', label: 'Basic Config.', Component: BasicTab },
-    { id: 'appearance', label: 'Appearance', Component: AppearanceTab },
-    { id: 'icons', label: 'Icons', Component: IconsTab },
-    { id: 'advanced', label: 'Advanced', Component: AdvancedTab },
-    
+    { id: 'basic', label: 'Basic Config.', icon: <BasicIcon />, Component: BasicTab },
+    { id: 'appearance', label: 'Appearance', icon: <AppearanceIcon />, Component: AppearanceTab },
+    { id: 'icons', label: 'Icons', icon: <IconsIcon />, Component: IconsTab },
+    { id: 'advanced', label: 'Advanced', icon: <AdvancedIcon />, Component: AdvancedTab },
   ];
 
   return (
@@ -31,7 +34,14 @@ function InputCard() {
                 aria-selected={activeTab === tab.id}
                 aria-controls={tab.id}
               >
-                {tab.label}
+                <span className="flex items-center justify-center">
+                  <div className="flex items-center justify-center">
+                    {tab.icon}
+                  </div>
+                  <div className="flex items-center justify-center pl-1">
+                    {tab.label}
+                  </div>
+                </span>
               </button>
             </li>
           ))}
