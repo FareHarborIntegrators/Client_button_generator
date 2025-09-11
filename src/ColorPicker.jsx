@@ -21,17 +21,17 @@ const ColorPicker = ({ color, setColor }) => {
 
   const styles = {
     color: {
-      width: '40px',
+      width: '20px',
       height: '20px',
       margin: '1px',
-      borderRadius: '5px',
+      borderRadius: '100%',
       background: previewColor, // HEX string
     },
     swatch: {
       padding: '3px',
       background: '#ffffffff',
       border: '1px solid #d9d9d9ff',
-      borderRadius: '5px',
+      borderRadius: '100%',
       boxShadow: '2px 4px 8px 3px rgba(0,0,0,.1)',
       display: 'inline-block',
       cursor: 'pointer',
