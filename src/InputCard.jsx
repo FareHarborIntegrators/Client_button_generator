@@ -12,13 +12,14 @@ import AdvancedTab from './AdvancedTab';
 function InputCard() {
 
   const [activeTab, setActiveTab] = useState('basic');
+  const activeColor = '#0a79e9';
   const isAboveXSmall = useMediaQuery('(min-width: 500px)');
 
   const tabs = [
-    { id: 'basic', label: 'Button Config.', icon: <BasicIcon />, Component: BasicTab },
-    { id: 'appearance', label: 'Appearance', icon: <AppearanceIcon />, Component: AppearanceTab },
-    { id: 'icons', label: 'Icons', icon: <IconsIcon />, Component: IconsTab },
-    { id: 'advanced', label: 'Advanced', icon: <AdvancedIcon />, Component: AdvancedTab },
+    { id: 'basic', label: 'Button Config.', icon: <BasicIcon activeTab={activeTab} activeColor={activeColor} />, Component: BasicTab },
+    { id: 'appearance', label: 'Appearance', icon: <AppearanceIcon activeTab={activeTab} activeColor={activeColor} />, Component: AppearanceTab },
+    { id: 'icons', label: 'Icons', icon: <IconsIcon activeTab={activeTab} activeColor={activeColor} />, Component: IconsTab },
+    { id: 'advanced', label: 'Advanced', icon: <AdvancedIcon activeTab={activeTab} activeColor={activeColor} />, Component: AdvancedTab },
   ];
 
   return (
