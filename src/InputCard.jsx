@@ -13,7 +13,7 @@ function InputCard() {
   const [activeTab, setActiveTab] = useState('basic');
 
   const tabs = [
-    { id: 'basic', label: 'Basic Config.', icon: <BasicIcon />, Component: BasicTab },
+    { id: 'basic', label: 'Button Config.', icon: <BasicIcon />, Component: BasicTab },
     { id: 'appearance', label: 'Appearance', icon: <AppearanceIcon />, Component: AppearanceTab },
     { id: 'icons', label: 'Icons', icon: <IconsIcon />, Component: IconsTab },
     { id: 'advanced', label: 'Advanced', icon: <AdvancedIcon />, Component: AdvancedTab },
@@ -28,17 +28,17 @@ function InputCard() {
             <li key={tab.id} className="z-30 flex-auto text-center">
               <button
                 onClick={() => setActiveTab(tab.id)}
-                className={`z-30 flex items-center justify-center w-full px-0 py-2 text-sm mb-0 transition-all ease-in-out duration-350 border-0 rounded-md cursor-pointer
+                className={`z-30 flex items-center justify-center w-full px-0 py-2 text-xs mb-0 transition-all ease-in-out duration-350 border-0 rounded-md cursor-pointer
                   ${activeTab === tab.id ? 'text-slate-900 font-semibold bg-white shadow' : 'text-slate-600 bg-inherit'}`}
                 role="tab"
                 aria-selected={activeTab === tab.id}
                 aria-controls={tab.id}
               >
-                <span className="flex flex-col items-center justify-center">
-                  <div className="flex items-center justify-center pb-1">
+                <span className="flex items-center justify-center">
+                  <div className="flex items-center justify-center">
                     {tab.icon}
                   </div>
-                  <div className="flex items-center justify-center">
+                  <div className="flex items-center justify-center pl-1">
                     {tab.label}
                   </div>
                 </span>
