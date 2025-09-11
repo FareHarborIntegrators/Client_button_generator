@@ -26,7 +26,7 @@ function BasicTab({}) {
 
     return (
         <div className="flex flex-col justify-start items-center h-full w-full pl-2 pr-2 pt-6 mb-4">
-            <div className="flex flex-col gap-4 md:flex-row justify-around items-center w-full mb-3 md:mb-6">
+            <div className="flex flex-col gap-4 md:flex-row justify-around items-center w-full mb-6 md:mb-16">
                 <div className='flex flex-col justify-start items-start w-full'>
                     <h3 className={h3Stylings}>Button Text</h3>
                     <input type="text-input" className={inputStyles} onChange={(e) => handleBtnTxtInput(e)} placeholder='Book Now'/>

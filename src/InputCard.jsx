@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useMediaQuery } from './Hooks/useMediaQuery';
 import BasicIcon from "./Icons/BasicIcon";
 import AppearanceIcon from "./Icons/AppearanceIcon";
 import IconsIcon from "./Icons/IconsIcon";
@@ -11,6 +12,7 @@ import AdvancedTab from './AdvancedTab';
 function InputCard() {
 
   const [activeTab, setActiveTab] = useState('basic');
+  const isAboveXSmall = useMediaQuery('(min-width: 500px)');
 
   const tabs = [
     { id: 'basic', label: 'Button Config.', icon: <BasicIcon />, Component: BasicTab },
@@ -34,13 +36,13 @@ function InputCard() {
                 aria-selected={activeTab === tab.id}
                 aria-controls={tab.id}
               >
-                <span className="flex items-center justify-center">
+                <span className="flex flex-col md:flex-row items-center justify-center">
                   <div className="flex items-center justify-center">
                     {tab.icon}
                   </div>
-                  <div className="flex items-center justify-center pl-1">
+                  {isAboveXSmall && <div className="flex items-center justify-center pl-1">
                     {tab.label}
-                  </div>
+                  </div>}
                 </span>
               </button>
             </li>
