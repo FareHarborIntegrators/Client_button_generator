@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+@theme {
+  --color-fh-blue: oklch(58.52% 0.191 255.30);
+}

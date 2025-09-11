@@ -1,8 +1,8 @@
 import { useButtonContext } from './ButtonContext';
 
 function BasicTab({}) {
-    const inputStyles = 'pl-2 pt-1 pb-1 w-full max-w-96 text-sm bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-auto';
-    const radioStyles= 'text-sm w-full flex justify-center peer-checked:bg-blue-600 peer-checked:text-white border border-blue-600 text-blue-600 px-4 py-2 rounded cursor-pointer transition';
+    const inputStyles = 'pl-2 pt-1 pb-1 w-full max-w-96 text-sm bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-auto placeholder-gray-400!';
+    const radioStyles= 'text-sm w-full flex justify-center peer-checked:bg-fh-blue peer-checked:text-white border border-fh-blue text-fh-blue px-4 py-2 rounded cursor-pointer transition';
     const h3Stylings = 'block mb-1 pl-1 text-sm font-medium text-gray-700'
     const {
             btnColor,
