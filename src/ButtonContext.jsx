@@ -14,6 +14,7 @@ export const ButtonProvider = ({ children }) => {
   const [btnColor, setBtnColor] = useState('0a79e9'); // hex (without #)
   const [btnLocation, setBtnLocation] = useState('');
   const [btnVisibility, setBtnVisibility] = useState('bothDesktopAndMobile');
+  const [btnActive, setBtnActive] = useState(false);
 
   const value = {
     btnText, setBtnText,
@@ -24,7 +25,8 @@ export const ButtonProvider = ({ children }) => {
     btnStyle, setBtnStyle,
     btnColor, setBtnColor,
     btnLocation, setBtnLocation,
-    btnVisibility, setBtnVisibility
+    btnVisibility, setBtnVisibility,
+    btnActive, setBtnActive,
   };
 
   return (

@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import { useButtonContext } from './ButtonContext';
+import ToggleSwitch from './ToggleSwitch';
 
 function BasicTab({}) {
     const inputStyles = 'pl-2 pt-1 pb-1 w-full max-w-96 text-sm bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-auto placeholder-gray-400!';
@@ -7,12 +9,17 @@ function BasicTab({}) {
     const {
             btnColor,
             btnLocation,
+            btnActive,
+            setBtnActive,
+            btnLink,
             setBtnText,
             setBtnLink,
             setBtnColor,
             setBtnLocation,
 
           } = useButtonContext();
+
+
     
     const handleBtnTxtInput = (textInput) => {
         setBtnText(textInput.target.value);
@@ -24,16 +31,30 @@ function BasicTab({}) {
         setBtnLocation(event.target.value);
     }
 
+    const toggleCriteria = (btnLink !='BOOKING LINK' && btnLink != '' && btnLink.includes('https://fareharbor.com/'));
+
+    useEffect(() => {
+        if(!toggleCriteria){
+            setBtnActive(false);
+        }
+
+    }, [toggleCriteria])
+
     return (
         <div className="flex flex-col justify-start items-center h-full w-full pl-2 pr-2 pt-6 mb-4">
-            <div className="flex flex-col gap-4 md:flex-row justify-around items-center w-full mb-6 md:mb-16">
+            <div className="flex flex-col gap-4 md:flex-row justify-around items-center w-full mb-6 md:mb-16 pb-12 md:pb-2">
                 <div className='flex flex-col justify-start items-start w-full'>
                     <h3 className={h3Stylings}>Button Text</h3>
                     <input type="text-input" className={inputStyles} onChange={(e) => handleBtnTxtInput(e)} placeholder='Book Now'/>
                 </div>
-                <div className='flex flex-col justify-center items-start w-full'>
+                <div className='relative flex flex-col justify-center items-start w-full'>
                     <h3 className={h3Stylings}>FareHarbor Booking Link</h3>
                     <input type="text-input" className={inputStyles} onChange={(e) => handleBtnLinkInput(e)} placeholder='Booking Link'/>
+                        <div className={`transition-opacity duration-300 absolute top-18 left-0
+                            ${toggleCriteria ? 'animate-[var(--animate-fade-in-down)] pointer-events-auto' : 'animate-[var(--animate-fade-out-up)] pointer-events-none'
+                            }`}>
+                            <ToggleSwitch enabled={btnActive} setEnabled={setBtnActive} label={'Button Enabled'}/>
+                        </div>
                 </div>
             </div>
         

@@ -2,4 +2,28 @@
 
 @theme {
   --color-fh-blue: oklch(58.52% 0.191 255.30);
+
+  --animate-fade-in-down: fade-in-down 0.4s ease-out forwards;
+  --animate-fade-out-up: fade-out-up 0.4s ease-in forwards;
+
+  @keyframes fade-in-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fade-out-up {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  }
 }
