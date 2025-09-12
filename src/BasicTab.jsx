@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useButtonContext } from './ButtonContext';
 import ToggleSwitch from './ToggleSwitch';
 
@@ -31,8 +31,14 @@ function BasicTab({}) {
         setBtnLocation(event.target.value);
     }
 
-    const toggleCriteria = (btnLink !='BOOKING LINK' && btnLink != '' && btnLink.includes('https://fareharbor.com/'));
+    const toggleCriteria = (btnLink !='BOOKING LINK' && btnLink != '' && btnLink.includes('https://fareharbor.com/embeds/book/'));
 
+    const [hasMounted, setHasMounted] = useState(false);
+
+    useEffect(() => {
+        setHasMounted(true);
+    }, []);
+    
     useEffect(() => {
         if(!toggleCriteria){
             setBtnActive(false);
@@ -50,11 +56,14 @@ function BasicTab({}) {
                 <div className='relative flex flex-col justify-center items-start w-full'>
                     <h3 className={h3Stylings}>FareHarbor Booking Link</h3>
                     <input type="text-input" className={inputStyles} onChange={(e) => handleBtnLinkInput(e)} placeholder='Booking Link'/>
-                        <div className={`transition-opacity duration-300 absolute top-18 left-0
-                            ${toggleCriteria ? 'animate-[var(--animate-fade-in-down)] pointer-events-auto' : 'animate-[var(--animate-fade-out-up)] pointer-events-none'
-                            }`}>
-                            <ToggleSwitch enabled={btnActive} setEnabled={setBtnActive} label={'Button Enabled'}/>
-                        </div>
+                        {(hasMounted && toggleCriteria) && (
+                            <div className={`transition-all duration-500 ease-out transform absolute top-18 left-0 
+                                ${toggleCriteria ? 'animate-[var(--animate-fade-in-down)]' : 'animate-[var(--animate-fade-out-up)]'} 
+                                ${!hasMounted && !toggleCriteria ? 'opacity-0 pointer-events-none' : ''}`}
+                            >
+                                <ToggleSwitch enabled={btnActive} setEnabled={setBtnActive} label="Enable Button" />
+                            </div>
+                        )}
                 </div>
             </div>
         
