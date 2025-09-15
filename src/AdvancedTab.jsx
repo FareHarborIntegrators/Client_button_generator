@@ -1,4 +1,5 @@
 import { useButtonContext } from './ButtonContext';
+import { useState } from 'react';
 
 function AdvancedTab({}) {
    const {
@@ -23,17 +24,45 @@ function AdvancedTab({}) {
     setBtnVisibility(event.target.value);
   } 
 
+  const [copiedAnchor, setCopiedAnchor] = useState(false);
+  const [copiedStyle, setCopiedStyle] = useState(false);
+
+  const handleCopy = async (text, type) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      if (type === 'anchor') {
+        setCopiedAnchor(true);
+        setTimeout(() => setCopiedAnchor(false), 2000);
+      } else if (type === 'style') {
+        setCopiedStyle(true);
+        setTimeout(() => setCopiedStyle(false), 2000);
+      }
+    } catch (err) {
+      console.error('Failed to copy!', err);
+    }
+  };
+
     return (
         <div className='flex flex-col h-3/4 justify-start items-start pl-2 pr-2 pt-6'>
 
-            <div className='flex flex-col justify-center items-start mb-4'>
+            <div className='flex flex-col justify-center items-start mb-4 relative'>
                 <h3 className={h3Stylings}>Button HTML Output</h3>
-                <code className='text-sm px-10 py-3 text-gray-500 bg-white border border-gray-200 rounded-lg'>{anchorString}</code>
+                <code className='text-sm px-10 py-3 text-gray-500 bg-white border border-gray-200 rounded-lg'>
+                  {anchorString}
+                </code>
+                <button onClick={() => handleCopy(anchorString, 'anchor')}
+                        className="absolute top-2 right-2 px-2 py-1 text-xs bg-fh-blue text-white rounded hover:bg-blue-700 transition">
+                  {copiedAnchor ? "Copied!" : "Copy"}
+                </button>
             </div>
 
-            <div className='flex flex-col justify-center items-start'>
+            <div className='flex flex-col justify-center items-start relative'>
                 <h3 className={h3Stylings}>FareHarbor Stylesheet</h3>
                 <code className='text-sm px-10 py-3 text-gray-500 bg-white border border-gray-200 rounded-lg'>{styleString}</code>
+                <button onClick={() => handleCopy(styleString, 'style')}
+                        className="absolute top-2 right-2 px-2 py-1 text-xs bg-fh-blue text-white rounded hover:bg-blue-700 transition">
+                  {copiedStyle ? "Copied!" : "Copy"}
+                </button>
             </div>
 
             <div className='flex flex-col justify-center items-start mt-4'>
