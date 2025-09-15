@@ -1,5 +1,6 @@
 import { useButtonContext } from './ButtonContext';
 import { useState } from 'react';
+import CopyIcon from './Icons/CopyIcon';
 
 function AdvancedTab({}) {
    const {
@@ -51,8 +52,8 @@ function AdvancedTab({}) {
                   {anchorString}
                 </code>
                 <button onClick={() => handleCopy(anchorString, 'anchor')}
-                        className="absolute top-2 right-2 px-2 py-1 text-xs bg-fh-blue text-white rounded hover:bg-blue-700 transition">
-                  {copiedAnchor ? "Copied!" : "Copy"}
+                        className="absolute top-2 right-2 px-2 py-1 text-xs bg-fh-blue text-white rounded hover:bg-blue-700 transition-all duration-300">
+                  {copiedAnchor ? "Copied!" : <CopyIcon/>}
                 </button>
             </div>
 
@@ -61,7 +62,7 @@ function AdvancedTab({}) {
                 <code className='text-sm px-10 py-3 text-gray-500 bg-white border border-gray-200 rounded-lg'>{styleString}</code>
                 <button onClick={() => handleCopy(styleString, 'style')}
                         className="absolute top-2 right-2 px-2 py-1 text-xs bg-fh-blue text-white rounded hover:bg-blue-700 transition">
-                  {copiedStyle ? "Copied!" : "Copy"}
+                  {copiedStyle ? "Copied!" : <CopyIcon/>}
                 </button>
             </div>
 
