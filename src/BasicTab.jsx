@@ -19,32 +19,39 @@ function BasicTab({}) {
 
           } = useButtonContext();
 
-
+    const DEFAULT_FLOW_REGEX = /^https:\/\/fareharbor\.com\/embeds\/book\/[a-zA-Z0-9\-_]+\/\?full-items=yes$/;
+    const FLOW_START_ON_CALENDAR_REGEX = /^https:\/\/fareharbor\.com\/embeds\/book\/[a-zA-Z0-9_-]+\/items\/calendar\/(?:\?.*)?$/;
+    const ITEM_REGEX = /^https:\/\/fareharbor\.com\/embeds\/book\/[a-zA-Z0-9_-]+\/items\/\d+\/(?:\?.*)?$/;
+    const AVAILABILITY_REGEX = /^https:\/\/fareharbor\.com\/embeds\/book\/[a-zA-Z0-9_-]+\/items\/\d+\/availability\/\d+\/book\/(?:\?.*)?$/;
     
     const handleBtnTxtInput = (textInput) => {
         setBtnText(textInput.target.value);
     }
     const handleBtnLinkInput = (linkInput) => {
         setBtnLink(linkInput.target.value);
+        setIsValidUrl(DEFAULT_FLOW_REGEX.test(linkInput.target.value) || 
+                    FLOW_START_ON_CALENDAR_REGEX.test(linkInput.target.value) || 
+                    ITEM_REGEX.test(linkInput.target.value) || 
+                    AVAILABILITY_REGEX.test(linkInput.target.value) 
+                    );
     }
     const handleBtnLocationInput = (event) => {
         setBtnLocation(event.target.value);
     }
 
-    const toggleCriteria = (btnLink !='BOOKING LINK' && btnLink != '' && btnLink.includes('https://fareharbor.com/embeds/book/'));
-
     const [hasMounted, setHasMounted] = useState(false);
+    const [isValidURL, setIsValidUrl] = useState(false);
 
     useEffect(() => {
         setHasMounted(true);
     }, []);
     
     useEffect(() => {
-        if(!toggleCriteria){
+        if(!isValidURL){
             setBtnActive(false);
         }
 
-    }, [toggleCriteria])
+    }, [isValidURL])
 
     return (
         <div className="flex flex-col justify-start items-center h-full w-full pl-2 pr-2 pt-6 mb-4">
@@ -56,10 +63,10 @@ function BasicTab({}) {
                 <div className='relative flex flex-col justify-center items-start w-full'>
                     <h3 className={h3Stylings}>FareHarbor Booking Link</h3>
                     <input type="text-input" className={inputStyles} onChange={(e) => handleBtnLinkInput(e)} placeholder='Booking Link'/>
-                        {(hasMounted && toggleCriteria) && (
+                        {(hasMounted && isValidURL) && (
                             <div className={`transition-all duration-500 ease-out transform absolute top-18 left-0 
-                                ${toggleCriteria ? 'animate-[var(--animate-fade-in-down)]' : 'animate-[var(--animate-fade-out-up)]'} 
-                                ${!hasMounted && !toggleCriteria ? 'opacity-0 pointer-events-none' : ''}`}
+                                ${isValidURL ? 'animate-[var(--animate-fade-in-down)]' : 'animate-[var(--animate-fade-out-up)]'} 
+                                ${!hasMounted && !isValidURL ? 'opacity-0 pointer-events-none' : ''}`}
                             >
                                 <ToggleSwitch enabled={btnActive} setEnabled={setBtnActive} label="Enable Button" />
                             </div>
