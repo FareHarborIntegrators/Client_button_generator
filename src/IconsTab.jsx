@@ -15,7 +15,7 @@ function IconsTab({}) {
         <h3 className={titleStyles}>Select a Button Icon</h3>
         <div className='flex flex-wrap w-full justify-start gap-2 items-start'>
           {allBtnIcons.map((icon, index) => (
-            <a key={index} className={`fh-button${btnStyle !== '' ? `-${btnStyle}` : ``}-pop fh-shape--${btnShape} fh-size--small fh-icon--${icon}`} onClick={() => setBtnIcon(icon)}></a>
+            <a key={index} className={`fh-button${btnStyle !== '' ? `-${btnStyle}` : ``}-pop fh-shape--${btnShape} fh-size--default fh-icon--${icon}`} onClick={() => setBtnIcon(icon)}></a>
             ))
           }
         </div>

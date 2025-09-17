@@ -4,18 +4,20 @@ import ToggleSwitch from './ToggleSwitch';
 
 function BasicTab({}) {
     const inputStyles = 'pl-2 pt-1 pb-1 w-full max-w-96 text-sm bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-auto placeholder-gray-400!';
-    const radioStyles= 'text-sm w-full flex justify-center peer-checked:bg-fh-blue peer-checked:text-white border border-fh-blue text-fh-blue px-4 py-2 rounded cursor-pointer transition';
+    const radioStyles= 'text-sm w-full flex justify-center items-center peer-checked:bg-fh-blue peer-checked:text-white border border-fh-blue text-fh-blue px-4 py-2 rounded cursor-pointer transition';
     const h3Stylings = 'block mb-1 pl-1 text-sm font-medium text-gray-700'
     const {
             btnColor,
             btnLocation,
             btnActive,
-            setBtnActive,
+            btnVisibility,
             btnLink,
+            setBtnActive,
             setBtnText,
             setBtnLink,
             setBtnColor,
             setBtnLocation,
+            setBtnVisibility,
 
           } = useButtonContext();
 
@@ -54,8 +56,8 @@ function BasicTab({}) {
     }, [isValidURL])
 
     return (
-        <div className="flex flex-col justify-start items-center h-full w-full pl-2 pr-2 pt-6 mb-4">
-            <div className="flex flex-col gap-4 md:flex-row justify-around items-center w-full mb-6 md:mb-16 pb-12 md:pb-2">
+        <div className="flex flex-col justify-start items-center h-full w-full pl-2 pr-2 pt-6 mb-3">
+            <div className="flex flex-col gap-4 md:flex-row justify-around items-center w-full mb-6 md:mb-8 pb-10 md:pb-2">
                 <div className='flex flex-col justify-start items-start w-full'>
                     <h3 className={h3Stylings}>Button Text</h3>
                     <input type="text-input" className={inputStyles} onChange={(e) => handleBtnTxtInput(e)} placeholder='Book Now'/>
@@ -68,13 +70,13 @@ function BasicTab({}) {
                                 ${isValidURL ? 'animate-[var(--animate-fade-in-down)]' : 'animate-[var(--animate-fade-out-up)]'} 
                                 ${!hasMounted && !isValidURL ? 'opacity-0 pointer-events-none' : ''}`}
                             >
-                                <ToggleSwitch enabled={btnActive} setEnabled={setBtnActive} label="Enable Button" />
+                                <ToggleSwitch enabled={btnActive} setEnabled={setBtnActive} label="Preview Lightframe" />
                             </div>
                         )}
                 </div>
             </div>
         
-            <div className='flex w-full justify-start items-center'>
+            <div className='flex w-full justify-start items-center mb-4 pb-2'>
                 <div className='flex flex-col items-start justify-start w-full max-w-[800px]'>
                     <h3 className={h3Stylings}>Button Location</h3>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-1 w-full">
@@ -96,6 +98,24 @@ function BasicTab({}) {
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div className='flex flex-col items-start justify-start w-full max-w-[800px]'>
+              <h3 className={h3Stylings}>Button Visibility</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-1 w-full">
+                <div className="w-full flex">
+                  <input name="btnVisibility" id="bothDesktopAndMobile" type="radio" value="bothDesktopAndMobile" className="peer hidden" checked={btnVisibility === 'bothDesktopAndMobile'} onChange={(e) => handleBtnVisibility(e)}/>
+                  <label htmlFor="bothDesktopAndMobile" className={radioStyles}>Desktop & Mobile</label>
+                </div>
+                <div className="w-full flex">
+                  <input name="btnVisibility" id="desktopOnly" type="radio" value="mobile" className="peer hidden" checked={btnVisibility === 'mobile'} onChange={(e) => handleBtnVisibility(e)}/>
+                  <label htmlFor="desktopOnly" className={radioStyles}>Desktop Only</label>
+                </div>
+                <div className="w-full flex">
+                  <input name="btnVisibility" id="mobileOnly" type="radio" value="desktop" className="peer hidden" checked={btnVisibility === 'desktop'} onChange={(e) => handleBtnVisibility(e)}/>
+                  <label htmlFor="mobileOnly" className={radioStyles}>Mobile Only</label>
+                </div>
+              </div>
             </div>
         </div>
     )
