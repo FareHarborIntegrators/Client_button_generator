@@ -24,13 +24,13 @@ const ColorPicker = ({ color, setColor }) => {
       width: '20px',
       height: '20px',
       margin: '1px',
-      borderRadius: '100%',
+      borderRadius: '15%',
       background: previewColor, // HEX string
     },
     swatch: {
-      padding: '3px',
+      padding: '2px',
       background: '#ffffffff',
-      borderRadius: '100%',
+      borderRadius: '15%',
       boxShadow: '0px 3px 8px 3px rgba(0,0,0,.1)',
       display: 'inline-block',
       cursor: 'pointer',

@@ -12,21 +12,17 @@ function AdvancedTab({}) {
     btnStyle,
     btnIcon,
     btnVisibility,
-    setBtnVisibility,
     btnLocation,
   } = useButtonContext();
 
   let anchorString = `<a href="${btnLink}" class="fh-button${btnStyle !== '' ? `-${btnStyle}` : ``}-pop fh-font--inherit fh-icon--${btnIcon} fh-shape--${btnShape} fh-size--${btnSize} fh-fixed--${btnLocation} ${btnVisibility === 'bothDesktopAndMobile' ? '':`fh-hide--${btnVisibility}`}">${btnText}</a>`;
   let styleString = `<link rel="stylesheet" href="https://fh-kit.com/buttons/v2/?pop=${btnColor}" type="text/css" media="screen" />`
+  const APIString = `<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>`;
   const h3Stylings = 'block mb-1 text-sm font-medium text-gray-700';
-  const radioStyles= 'text-sm peer-checked:bg-fh-blue peer-checked:text-white border border-fh-blue text-fh-blue px-4 py-2 rounded cursor-pointer transition';
-
-  const handleBtnVisibility = (event) => {
-    setBtnVisibility(event.target.value);
-  } 
 
   const [copiedAnchor, setCopiedAnchor] = useState(false);
   const [copiedStyle, setCopiedStyle] = useState(false);
+  const [copiedAPI, setCopiedAPI] = useState(false);
 
   const handleCopy = async (text, type) => {
     try {
@@ -37,6 +33,9 @@ function AdvancedTab({}) {
       } else if (type === 'style') {
         setCopiedStyle(true);
         setTimeout(() => setCopiedStyle(false), 2000);
+      } else if (type === 'api') {
+        setCopiedAPI(true);
+        setTimeout(() => setCopiedAPI(false), 2000);
       }
     } catch (err) {
       console.error('Failed to copy!', err);
@@ -44,11 +43,29 @@ function AdvancedTab({}) {
   };
 
     return (
-        <div className='flex flex-col h-3/4 justify-start items-start pl-2 pr-2 pt-6'>
+        <div className='flex flex-col justify-start items-start pl-2 pr-2 pt-6'>
 
-            <div className='flex flex-col justify-center items-start mb-4 relative'>
-                <h3 className={h3Stylings}>Button HTML Output</h3>
-                <code className='text-sm px-10 py-3 text-gray-500 bg-white border border-gray-200 rounded-lg'>
+          <div className='flex w-full flex-col justify-center items-start relative mb-4'>
+                <h3 className={h3Stylings}>FareHarbor Stylesheet</h3>
+                <code className='overflow-auto text-sm w-full pl-4 pr-10 py-3 text-gray-500 bg-white border border-gray-200 rounded-lg'>{styleString}</code>
+                <button onClick={() => handleCopy(styleString, 'style')}
+                        className="absolute top-2 right-2 px-2 py-1 text-xs bg-fh-blue text-white rounded hover:bg-blue-700 transition">
+                  {copiedStyle ? "Copied!" : <CopyIcon/>}
+                </button>
+            </div>
+
+            <div className='flex w-full flex-col justify-center items-start relative mb-4'>
+                <h3 className={h3Stylings}>FareHarbor API</h3>
+                <code className='overflow-auto text-sm w-full pl-4 pr-10 py-3 text-gray-500 bg-white border border-gray-200 rounded-lg'>{APIString}</code>
+                <button onClick={() => handleCopy(APIString, 'api')}
+                        className="absolute top-2 right-2 px-2 py-1 text-xs bg-fh-blue text-white rounded hover:bg-blue-700 transition">
+                  {copiedAPI ? "Copied!" : <CopyIcon/>}
+                </button>
+            </div>
+
+            <div className='flex w-full flex-col justify-center items-start mb-4 relative'>
+                <h3 className={h3Stylings}>Button HTML</h3>
+                <code className='overflow-auto text-sm w-full pl-4 pr-10 py-3 text-gray-500 bg-white border border-gray-200 rounded-lg'>
                   {anchorString}
                 </code>
                 <button onClick={() => handleCopy(anchorString, 'anchor')}
@@ -57,14 +74,6 @@ function AdvancedTab({}) {
                 </button>
             </div>
 
-            <div className='flex flex-col justify-center items-start relative'>
-                <h3 className={h3Stylings}>FareHarbor Stylesheet</h3>
-                <code className='text-sm px-10 py-3 text-gray-500 bg-white border border-gray-200 rounded-lg'>{styleString}</code>
-                <button onClick={() => handleCopy(styleString, 'style')}
-                        className="absolute top-2 right-2 px-2 py-1 text-xs bg-fh-blue text-white rounded hover:bg-blue-700 transition">
-                  {copiedStyle ? "Copied!" : <CopyIcon/>}
-                </button>
-            </div>
          </div>
     )
 }

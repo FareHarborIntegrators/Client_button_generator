@@ -41,6 +41,10 @@ function BasicTab({}) {
         setBtnLocation(event.target.value);
     }
 
+    const handleBtnVisibility = (event) => {
+        setBtnVisibility(event.target.value);
+    } 
+
     const [hasMounted, setHasMounted] = useState(false);
     const [isValidURL, setIsValidUrl] = useState(false);
 

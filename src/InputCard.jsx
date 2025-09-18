@@ -2,12 +2,10 @@ import { useState } from "react";
 import { useMediaQuery } from './Hooks/useMediaQuery';
 import BasicIcon from "./Icons/BasicIcon";
 import AppearanceIcon from "./Icons/AppearanceIcon";
-import IconsIcon from "./Icons/IconsIcon";
-import AdvancedIcon from "./Icons/AdvancedIcon";
+import IconsIcon from "./Icons/IconsIcon";  
 import BasicTab from './BasicTab';
 import IconsTab from './IconsTab';
 import AppearanceTab from './AppearanceTab';
-import AdvancedTab from './AdvancedTab';
 
 function InputCard() {
 
@@ -19,7 +17,6 @@ function InputCard() {
     { id: 'basic', label: 'Button Config.', icon: <BasicIcon activeTab={activeTab} activeColor={activeColor} />, Component: BasicTab },
     { id: 'appearance', label: 'Appearance', icon: <AppearanceIcon activeTab={activeTab} activeColor={activeColor} />, Component: AppearanceTab },
     { id: 'icons', label: 'Icons', icon: <IconsIcon activeTab={activeTab} activeColor={activeColor} />, Component: IconsTab },
-    { id: 'advanced', label: 'Advanced', icon: <AdvancedIcon activeTab={activeTab} activeColor={activeColor} />, Component: AdvancedTab },
   ];
 
   return (
