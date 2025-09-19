@@ -1,5 +1,6 @@
 import { useState } from "react";
 import AdvancedIcon from "./Icons/AdvancedIcon";
+import QuestionIcon from "./Icons/QuestionIcon";
 import AdvancedTab from "./AdvancedTab";
 
 function CodeOutputModal() {
@@ -38,7 +39,9 @@ function CodeOutputModal() {
               &times;
             </button>
 
-            <h2 className="text-xl font-semibold mb-4">FareHarbor Button HTML</h2>
+            <div className="flex items-center">
+              <h2 className="text-xl font-semibold mb-4">FareHarbor Button HTML</h2>
+            </div>
             <p className="text-gray-600">The stylesheet, API, and button HTML are all required for your button to lightframe and function properly.</p>
             <AdvancedTab/>
           </div>

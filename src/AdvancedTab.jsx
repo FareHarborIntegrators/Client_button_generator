@@ -1,6 +1,7 @@
 import { useButtonContext } from './ButtonContext';
 import { useState } from 'react';
 import CopyIcon from './Icons/CopyIcon';
+import QuestionIcon from './Icons/QuestionIcon';
 
 function AdvancedTab({}) {
    const {
@@ -46,7 +47,9 @@ function AdvancedTab({}) {
         <div className='flex flex-col justify-start items-start pl-2 pr-2 pt-6'>
 
           <div className='flex w-full flex-col justify-center items-start relative mb-4'>
-                <h3 className={h3Stylings}>FareHarbor Stylesheet</h3>
+                <div className='flex items-center'>
+                  <h3 className={h3Stylings}>FareHarbor Stylesheet <span className='text-gray-600'>&#40;append to end of the &lt;/header&gt; tag&#41;</span></h3>
+                </div>
                 <code className='overflow-auto text-sm w-full pl-4 pr-10 py-3 text-gray-500 bg-white border border-gray-200 rounded-lg'>{styleString}</code>
                 <button onClick={() => handleCopy(styleString, 'style')}
                         className="absolute top-2 right-2 px-2 py-1 text-xs bg-fh-blue text-white rounded hover:bg-blue-700 transition">
@@ -55,7 +58,7 @@ function AdvancedTab({}) {
             </div>
 
             <div className='flex w-full flex-col justify-center items-start relative mb-4'>
-                <h3 className={h3Stylings}>FareHarbor API</h3>
+                <h3 className={h3Stylings}>FareHarbor API <span className='text-gray-600'>&#40;append to end of the &lt;/body&gt; tag&#41;</span></h3>
                 <code className='overflow-auto text-sm w-full pl-4 pr-10 py-3 text-gray-500 bg-white border border-gray-200 rounded-lg'>{APIString}</code>
                 <button onClick={() => handleCopy(APIString, 'api')}
                         className="absolute top-2 right-2 px-2 py-1 text-xs bg-fh-blue text-white rounded hover:bg-blue-700 transition">
@@ -64,7 +67,7 @@ function AdvancedTab({}) {
             </div>
 
             <div className='flex w-full flex-col justify-center items-start mb-4 relative'>
-                <h3 className={h3Stylings}>Button HTML</h3>
+                <h3 className={h3Stylings}>Button HTML <span className='text-gray-600'>&#40;append to end of the &lt;/body&gt; tag&#41;</span></h3>
                 <code className='overflow-auto text-sm w-full pl-4 pr-10 py-3 text-gray-500 bg-white border border-gray-200 rounded-lg'>
                   {anchorString}
                 </code>
