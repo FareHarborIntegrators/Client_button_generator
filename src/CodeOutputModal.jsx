@@ -32,14 +32,14 @@ function CodeOutputModal() {
           >
             <button
               onClick={closeModal}
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+              className="absolute top-2 right-4 text-gray-500 hover:text-gray-700"
               aria-label="Close"
             >
               &times;
             </button>
 
             <h2 className="text-xl font-semibold mb-4">FareHarbor Button HTML</h2>
-            <p className="text-gray-600">The stylesheet, API script, and button HTML are all required for your button to function.</p>
+            <p className="text-gray-600">The stylesheet, API, and button HTML are all required for your button to lightframe and function properly.</p>
             <AdvancedTab/>
           </div>
         </div>
