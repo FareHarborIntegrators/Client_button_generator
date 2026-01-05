@@ -1,7 +1,6 @@
 import { useButtonContext } from './ButtonContext';
 import { useState } from 'react';
 import CopyIcon from './Icons/CopyIcon';
-import QuestionIcon from './Icons/QuestionIcon';
 
 function AdvancedTab({}) {
    const {
@@ -16,7 +15,7 @@ function AdvancedTab({}) {
     btnLocation,
   } = useButtonContext();
 
-  let anchorString = `<a href="${btnLink}" class="fh-button${btnStyle !== '' ? `-${btnStyle}` : ``}-pop fh-icon--${btnIcon} fh-shape--${btnShape} fh-size--${btnSize} ${btnLocation === '' ? '' : `fh-fixed--${btnLocation}`} ${btnVisibility === 'bothDesktopAndMobile' ? '':`fh-hide--${btnVisibility}`}">${btnText}</a>`;
+  let anchorString = `<a href="${btnLink}" class="fh-button${btnStyle !== '' ? `-${btnStyle}` : ``}-pop ${btnIcon === 'no-icon' ? '' : `fh-icon--${btnIcon}`} fh-shape--${btnShape} fh-size--${btnSize} ${btnLocation === '' ? '' : `fh-fixed--${btnLocation}`} ${btnVisibility === 'bothDesktopAndMobile' ? '':`fh-hide--${btnVisibility}`}">${btnText}</a>`;
   let styleString = `<link rel="stylesheet" href="https://fh-kit.com/buttons/v2/?pop=${btnColor}" type="text/css" media="screen" />`
   const APIString = `<script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>`;
   const h3Stylings = 'block mb-1 text-sm font-medium text-gray-700';

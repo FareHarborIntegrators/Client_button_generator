@@ -22,14 +22,13 @@ function DynamicStyleSheetLoader() {
       document.head.appendChild(link);
     }
 
-    // Optional cleanup on unmount
     return () => {
       const link = document.getElementById(id);
       if (link) link.remove();
     };
   }, [btnColor]);
 
-  return null; // No visual output
+  return null;
 }
 
 export default DynamicStyleSheetLoader;
