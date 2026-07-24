@@ -6,8 +6,10 @@ Node.js 18+ (developing using Node 23)
 npm (comes with Node)
 
 # Local Setup
+```
 npm install
 npm run dev
+```
 
 # React + Vite
 
